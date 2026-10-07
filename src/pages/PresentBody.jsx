@@ -11,7 +11,7 @@ export default function PresentBody() {
   return (
     <div className="shell">
       <Seo
-        title="Present Body, 2026–27"
+        title="President Body, 2026–27"
         description="The President and Vice President of the UCP Photography Club, Executive Body 2026–27."
       />
 
@@ -23,7 +23,7 @@ export default function PresentBody() {
 
         <div className="page-head__title-row">
           <Reveal as="h1" className="h-page">
-            Present Body
+            President Body
           </Reveal>
           <Reveal as="p" className="lede" delay={0.06}>
             The executive leadership of the UCP Photography Club for the 2026–27 tenure,
@@ -32,7 +32,7 @@ export default function PresentBody() {
         </div>
       </header>
 
-      <section className="section section--tight" aria-label="Present Body positions">
+      <section className="section section--tight" aria-label="President Body positions">
         <ul className="index-list">
           {presentBodyMembers.map((member, index) => (
             <li key={member.slug}>

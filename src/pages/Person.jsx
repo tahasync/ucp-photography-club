@@ -9,7 +9,7 @@ import { getDepartment } from '../data/hierarchy.js';
 /** Breadcrumb context so a QR visitor always knows where they landed. */
 const buildCrumb = (member) => {
   if (member.group === 'present-body') {
-    return [{ label: 'Present Body', to: '/present-body' }, { label: member.position }];
+    return [{ label: 'President Body', to: '/present-body' }, { label: member.position }];
   }
 
   if (member.group === 'patrons') {

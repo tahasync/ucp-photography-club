@@ -94,7 +94,7 @@ export default function Home() {
             <Link className="tile" to="/present-body">
               <span className="tile__num">01</span>
               <span>
-                <span className="tile__title">Present Body</span>
+                <span className="tile__title">President Body</span>
                 <span className="tile__sub">President &amp; Vice President</span>
               </span>
               <span className="tile__meta">
@@ -147,7 +147,7 @@ export default function Home() {
           <div className="stat-grid">
             <Reveal>
               <span className="stat__value tnum">{pad(presentBodyMembers.length)}</span>
-              <span className="stat__label">Present Body</span>
+              <span className="stat__label">President Body</span>
             </Reveal>
             <Reveal delay={0.06}>
               <span className="stat__value tnum">{pad(teamCount)}</span>

@@ -70,7 +70,7 @@ export default function Hierarchy() {
 
       <section className="section section--tight">
         <Link className="cta-row" to="/present-body">
-          <span className="cta-row__label">Present Body</span>
+          <span className="cta-row__label">President Body</span>
           <span className="cta-row__arrow" aria-hidden="true">
             <Arrow />
           </span>

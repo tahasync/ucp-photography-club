@@ -6,8 +6,8 @@
 export const NAV_ITEMS = [
   {
     to: '/present-body',
-    label: 'Present Body',
-    menuLabel: 'Present Body',
+    label: 'President Body',
+    menuLabel: 'President Body',
     match: ['/present-body']
   },
   {

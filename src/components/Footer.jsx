@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import Arrow from './Arrow.jsx';
 import { CLUB, CLUB_LINKS } from '../data/site.js';
@@ -5,6 +6,11 @@ import { NAV_ITEMS } from '../data/navigation.js';
 
 /** Deliberately small: wordmark, navigation, official accounts, legal line. */
 export default function Footer() {
+  const toTop = useCallback(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  }, []);
+
   return (
     <footer className="site-footer">
       <div className="shell">
@@ -43,7 +49,11 @@ export default function Footer() {
 
         <div className="site-footer__bottom">
           <span>© {CLUB.name} {CLUB.tenure}</span>
-          <span>{CLUB.statement}</span>
+          <span className="site-footer__statement">{CLUB.statement}</span>
+          <button type="button" className="site-footer__top" onClick={toTop}>
+            <span className="u-line">Back to top</span>
+            <Arrow direction="up" />
+          </button>
         </div>
       </div>
     </footer>
