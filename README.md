@@ -66,7 +66,58 @@ Both are one-off maintenance commands and are not part of the build or deploymen
 
 ---
 
-## 3. Project structure
+## 3. QR code generation
+
+```bash
+npm run qr   # generate QR codes from src/data/members.js
+```
+
+### Naming convention
+
+QR PNG filenames follow a position-based convention:
+
+- **Positions without a department** (unique): the position alone.
+  - `president.png`, `vice-president.png`, `patron.png`, `co-patron.png`
+- **Duplicate positions inside a department**: `position-departmentSlug`.
+  - `director-operations.png`, `director-editing.png`, `director-social-media.png`
+  - `deputy-director-publications-comms.png`, `deputy-director-social-media.png`, etc.
+
+Example: if two members share the same position `Director` but belong to
+different departments, they get distinct filenames:
+
+- `director-operations.png`  (Operations Director)
+- `director-editing.png`     (Editing Director)
+- `director-social-media.png`(Social Media Director)
+
+### How it works
+
+1. Reads every member from `src/data/members.js` (the single source of truth for
+   both slugs and QR URLs).
+2. Uses a `position` + `departmentSlug` combination to detect duplicates.
+3. Generates one PNG per member in `public/images/qr/` with the naming above.
+4. Each QR code encodes a **permanent URL** pointing to the member's stable slug
+   (e.g. `/president`, `/operations/director`). Never rename a slug after cards
+   are printed — QR codes must keep pointing to the same URL.
+
+### Configuration
+
+Generate QR codes for a specific host via the `QR_BASE_URL` environment variable:
+
+```bash
+# Local development (Vite dev server)
+QR_BASE_URL=http://localhost:5173 npm run qr
+
+# Production (GitHub Pages)
+QR_BASE_URL=https://tahasync.github.io/ucp-photography-club npm run qr
+```
+
+### Print-safe settings
+
+The script uses `errorCorrectionLevel: 'H'` (high error correction), `scale: 8`
+(pixel-doubling for crisp print), and `margin: 2` (quiet zone) so the cards
+print cleanly.
+
+
 
 ```text
 ├── index.html                  # shell, boot state, base-aware asset links
@@ -76,10 +127,12 @@ Both are one-off maintenance commands and are not part of the build or deploymen
 │   ├── site.webmanifest
 │   └── images/
 │       ├── branding/           # logo, favicons, apple-touch-icon, og-cover
-│       └── members/            # portraits (placeholders until the shoot)
+│       ├── members/            # portraits (placeholders until the shoot)
+│       └── qr/                 # generated QR codes (17 PNGs, source: scripts/generate-qr-codes.mjs)
 ├── scripts/
 │   ├── 404.template.html       # static-host deep-link fallback template (used by the build)
 │   ├── generate-assets.mjs     # branding + placeholder generation
+│   ├── generate-qr-codes.mjs   # QR code generation (17 PNGs)
 │   └── optimize-images.mjs     # portrait optimisation for the official shoot
 └── src/
     ├── components/             # Navigation, MobileMenu, PersonHero, Portrait, Arrow, …

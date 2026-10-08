@@ -24,3 +24,6 @@ assets-source
 *prompt*.md
 *PROMPT*.md
 
+# Generated QR code PNGs (regenerate with `npm run qr`)
+public/images/qr/
+
