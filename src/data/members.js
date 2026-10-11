@@ -169,7 +169,7 @@ export const members = {
     body: 'Editing',
     group: 'hierarchy',
     departmentSlug: 'editing',
-    order: 2,
+    order: 3,
     ...portrait(1),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
     bio: 'Serving as Deputy Director of Editing for the 2026–27 tenure, supporting the team’s workflow and review of club photography.',
@@ -187,7 +187,7 @@ export const members = {
     body: 'Editing',
     group: 'hierarchy',
     departmentSlug: 'editing',
-    order: 3,
+    order: 2,
     ...portrait(2),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
     bio: 'Serving as Assistant Director of Editing for the 2026–27 tenure, supporting post-production work across the club’s coverage.',
