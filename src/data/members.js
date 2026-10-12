@@ -277,7 +277,7 @@ export const members = {
   [key('social-media', 'deputy-director')]: {
     slug: key('social-media', 'deputy-director'),
     path: '/social-media/deputy-director',
-    name: 'Marwa Mahmood',
+    name: 'Manal Chaudhry',
     position: 'Deputy Director',
     positionLines: ['Deputy', 'Director'],
     body: 'Social Media',
