@@ -188,9 +188,9 @@ All people live in [`src/data/members.js`](src/data/members.js). The object key 
   | --- | --- | --- |
   | `operations` | Operations | `/operations` |
   | `editing` | Editing | `/editing` |
-  | `comms` | Communication And Publication | `/comms` |
+  | `comms` | Comms | `/comms` |
   | `social-media` | Social Media | `/social-media` |
-  | `creatives` | Graphics and Art And Craft | `/creatives` |
+  | `creatives` | Creatives | `/creatives` |
 
   The slug, the member `departmentSlug` and the URL stay `comms` / `creatives` so already
   printed QR codes keep working — only the visible team name changed.

@@ -10,7 +10,7 @@
     "build:gh": "vite build --mode github",
     "preview": "vite preview --port 4173",
     "assets": "node scripts/generate-assets.mjs",
-    "qr": "node scripts/generate-qr-codes.mjs",
+    "images": "node scripts/optimize-images.mjs",
     "qr": "node scripts/generate-qr-codes.mjs"
   },
   "dependencies": {

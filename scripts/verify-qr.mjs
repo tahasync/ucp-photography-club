@@ -20,7 +20,7 @@ const expected = {
   'director-social-media.png': '/social-media/director',
   'deputy-director-social-media.png': '/social-media/deputy-director',
   'director-graphics-creatives.png': '/creatives/director-graphics',
-  'director-art-craft-creatives.png': '/creatives/director-art-craft',
+  'director-arts-crafts-creatives.png': '/creatives/director-art-craft',
   'patron.png': '/patrons/patron',
   'co-patron.png': '/patrons/co-patron',
 };

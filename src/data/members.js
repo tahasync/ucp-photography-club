@@ -172,7 +172,7 @@ export const members = {
     order: 3,
     ...portrait(1),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Deputy Director of Editing for the 2026–27 tenure, supporting the team’s workflow and review of club photography.',
+    bio: 'Serving as Assistant Director of Editing for the 2026–27 tenure, supporting the team’s workflow and review of club photography.',
     bioIsPlaceholder: true,
     role: '',
     links: emptyLinks()
@@ -190,14 +190,14 @@ export const members = {
     order: 2,
     ...portrait(2),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Assistant Director of Editing for the 2026–27 tenure, supporting post-production work across the club’s coverage.',
+    bio: 'Serving as Deputy Director of Editing for the 2026–27 tenure, supporting post-production work across the club’s coverage.',
     bioIsPlaceholder: true,
     role: '',
     links: emptyLinks()
   },
 
   /* ---------------------------------------------------------------- *
-   * 03 / Communication And Publication
+   * 03 / Comms
    * ---------------------------------------------------------------- */
   [key('comms', 'director-publications')]: {
     slug: key('comms', 'director-publications'),
@@ -205,10 +205,10 @@ export const members = {
     name: 'Eshaal Faisal',
     position: 'Director Publications',
     positionLines: ['Director', 'Publications'],
-    body: 'Communication And Publication',
+    body: 'Comms',
     group: 'hierarchy',
     departmentSlug: 'comms',
-    order: 2,
+    order: 1,
     ...portrait(1),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
     bio: 'Directing publications for the 2026–27 tenure, shaping how the club’s work is written, published and documented.',
@@ -223,10 +223,10 @@ export const members = {
     name: 'Manahil Shafique',
     position: 'Deputy Director Publications',
     positionLines: ['Deputy Director', 'Publications'],
-    body: 'Communication And Publication',
+    body: 'Comms',
     group: 'hierarchy',
     departmentSlug: 'comms',
-    order: 3,
+    order: 2,
     ...portrait(2),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
     bio: 'Serving as Deputy Director Publications for the 2026–27 tenure, supporting the club’s written output across the tenure.',
@@ -241,10 +241,10 @@ export const members = {
     name: 'Anamta Jahangir',
     position: 'Director Communications',
     positionLines: ['Director', 'Communications'],
-    body: 'Communication And Publication',
+    body: 'Comms',
     group: 'hierarchy',
     departmentSlug: 'comms',
-    order: 1,
+    order: 3,
     ...portrait(3),
     // TODO: Replace placeholder bio after hierarchy shoot / content collection.
     bio: 'Directing communications for the 2026–27 tenure, coordinating the club’s messaging and announcements.',
@@ -293,7 +293,7 @@ export const members = {
   },
 
   /* ---------------------------------------------------------------- *
-   * 05 / Graphics and Art And Craft
+   * 05 / Creatives
    * ---------------------------------------------------------------- */
   [key('creatives', 'director-graphics')]: {
     slug: key('creatives', 'director-graphics'),
@@ -301,7 +301,7 @@ export const members = {
     name: 'Hadia Ammar',
     position: 'Director Graphics',
     positionLines: ['Director', 'Graphics'],
-    body: 'Graphics and Art And Craft',
+    body: 'Creatives',
     group: 'hierarchy',
     departmentSlug: 'creatives',
     order: 1,
@@ -317,9 +317,9 @@ export const members = {
     slug: key('creatives', 'director-art-craft'),
     path: '/creatives/director-art-craft',
     name: 'Farmeen Aejaz Chughtaie',
-    position: 'Director Art & Craft',
-    positionLines: ['Director', 'Art & Craft'],
-    body: 'Graphics and Art And Craft',
+    position: 'Director Arts & Crafts',
+    positionLines: ['Director', 'Arts & Crafts'],
+    body: 'Creatives',
     group: 'hierarchy',
     departmentSlug: 'creatives',
     order: 2,
