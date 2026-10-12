@@ -163,7 +163,7 @@ export const members = {
   [key('editing', 'deputy-director')]: {
     slug: key('editing', 'deputy-director'),
     path: '/editing/deputy-director',
-    name: 'Danyal Dar',
+    name: 'Daniyal Dar',
     position: 'Assistant Director',
     positionLines: ['Assistant', 'Director'],
     body: 'Editing',
