@@ -5,9 +5,9 @@
  *   LOGO_PATH=... npm run assets
  *
  * Outputs (all replaceable later without touching components):
- *   public/images/branding/upc-logo.png        optimised official logo
- *   public/images/branding/favicon.svg         temporary wrapped raster mark
- *   public/images/branding/favicon-16/32/48.png
+ *   public/images/branding/upc-logo.png        optimised official logo (hi-res)
+ *   public/images/branding/favicon.svg         complete logo, contain-fit square
+ *   public/images/branding/favicon-16.png, favicon-32.png
  *   public/images/branding/apple-touch-icon.png
  *   public/images/branding/icon-192.png, icon-512.png
  *   public/images/branding/og-cover.jpg        Open Graph image (1200x630)
@@ -25,23 +25,27 @@ const LOGO_SOURCE =
 const BRAND_DIR = path.join(ROOT, 'public', 'images', 'branding');
 const MEMBER_DIR = path.join(ROOT, 'public', 'images', 'members');
 
-/* The camera mark occupies the upper square of the artwork. */
-const EMBLEM_WIDTH_RATIO = 0.66;
-const EMBLEM_TOP_RATIO = 0;
-
 const WHITE = { r: 255, g: 255, b: 255, alpha: 1 };
 
-const squareIcon = async (buffer, size, padding = 0) => {
-  const inner = Math.max(8, size - padding * 2);
-  return sharp(buffer)
-    .resize({ width: inner, height: inner, fit: 'contain', background: WHITE })
-    .extend({
-      top: padding,
-      bottom: padding,
-      left: padding,
-      right: padding,
-      background: WHITE
-    })
+/**
+ * Fit the COMPLETE logo (camera icon + full wordmark) into a square canvas
+ * using `contain`, centred, on a solid white background with a little
+ * padding — so the entire lockup stays visible and nothing gets cropped,
+ * whatever the logo's aspect ratio. Returns a `size x size` PNG.
+ */
+const squareLogoIcon = async (buffer, size, paddingRatio = 0.1, background = WHITE) => {
+  const pad = Math.round(size * paddingRatio);
+  const inner = Math.max(8, size - pad * 2);
+  const resized = await sharp(buffer)
+    .resize({ width: inner, height: inner, fit: 'contain', background })
+    .toBuffer();
+  const rMeta = await sharp(resized).metadata();
+  const left = Math.round((size - rMeta.width) / 2);
+  const top = Math.round((size - rMeta.height) / 2);
+  return sharp({
+    create: { width: size, height: size, channels: 4, background }
+  })
+    .composite([{ input: resized, left, top }])
     .png({ compressionLevel: 9 })
     .toBuffer();
 };
@@ -65,56 +69,43 @@ const main = async () => {
   // ---------------------------------------------------------------- logo
   const source = await fs.readFile(LOGO_SOURCE);
   const trimmedBuffer = await sharp(source).trim({ threshold: 12 }).png().toBuffer();
-  const trimmedMeta = await sharp(trimmedBuffer).metadata();
 
   const logo = await sharp(trimmedBuffer)
-    .resize({ width: 1400, withoutEnlargement: true })
+    .resize({ width: 2400, withoutEnlargement: true })
     .png({ compressionLevel: 9 })
     .toBuffer();
   const logoMeta = await sharp(logo).metadata();
   await fs.writeFile(path.join(BRAND_DIR, 'upc-logo.png'), logo);
 
-  // ------------------------------------------------------------- emblem
-  const side = Math.round(
-    Math.min(trimmedMeta.width, Math.round(trimmedMeta.height * EMBLEM_WIDTH_RATIO))
-  );
-  const emblem = await sharp(trimmedBuffer)
-    .extract({
-      left: Math.max(0, Math.round((trimmedMeta.width - side) / 2)),
-      top: Math.round(trimmedMeta.height * EMBLEM_TOP_RATIO),
-      width: side,
-      height: side
-    })
-    .png()
-    .toBuffer();
-
   // ------------------------------------------------------------ favicons
-  const emblem128 = await squareIcon(emblem, 128, 4);
+  // Complete logo (icon + wordmark), contain-fit into a square on a solid
+  // white background — never cropped, so the full lockup always shows.
+  const logo128 = await squareLogoIcon(trimmedBuffer, 128, 0.08);
   const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <rect width="128" height="128" fill="#ffffff"/>
-  <image href="data:image/png;base64,${emblem128.toString('base64')}" width="128" height="128"/>
+  <image href="data:image/png;base64,${logo128.toString('base64')}" width="128" height="128"/>
 </svg>
 `;
   await fs.writeFile(path.join(BRAND_DIR, 'favicon.svg'), faviconSvg);
   await fs.writeFile(
     path.join(BRAND_DIR, 'favicon-16.png'),
-    await squareIcon(emblem, 16, 1)
+    await squareLogoIcon(trimmedBuffer, 16, 0.06)
   );
   await fs.writeFile(
     path.join(BRAND_DIR, 'favicon-32.png'),
-    await squareIcon(emblem, 32, 2)
+    await squareLogoIcon(trimmedBuffer, 32, 0.06)
   );
   await fs.writeFile(
     path.join(BRAND_DIR, 'apple-touch-icon.png'),
-    await squareIcon(emblem, 180, 18)
+    await squareLogoIcon(trimmedBuffer, 180, 0.12)
   );
   await fs.writeFile(
     path.join(BRAND_DIR, 'icon-192.png'),
-    await squareIcon(emblem, 192, 20)
+    await squareLogoIcon(trimmedBuffer, 192, 0.12)
   );
   await fs.writeFile(
     path.join(BRAND_DIR, 'icon-512.png'),
-    await squareIcon(emblem, 512, 52)
+    await squareLogoIcon(trimmedBuffer, 512, 0.1)
   );
 
   // ------------------------------------------------------------ OG image
@@ -151,7 +142,7 @@ const main = async () => {
 
   console.log('Branding assets written to public/images/branding');
   console.log(
-    `  logo: ${logoMeta.width}x${logoMeta.height} | emblem: ${side}x${side}`
+    `  logo: ${logoMeta.width}x${logoMeta.height} | favicons: complete logo, contain-fit (uncropped)`
   );
   console.log('Member placeholders written to public/images/members');
 };
