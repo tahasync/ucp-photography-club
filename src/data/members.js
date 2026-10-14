@@ -78,6 +78,7 @@ This is more than a position. It is a responsibility to build, to elevate, and t
     departmentSlug: null,
     order: 2,
     image: '/images/members/vice-president.jpg',
+    imageWebp: '/images/members/vice-president.webp',
     imagePlaceholder: false,
     bio: 'I am Taha Naeem, Vice President, driving our club’s overarching strategy alongside the President. With three years of dedicated service, I bring strong foundational expertise from my previous role as Director of Editing. Having managed critical, high-stakes editing for our major events, I now oversee our broader operational execution. My core focus is internal coordination, equipping our directors to deploy their strategic initiatives flawlessly. I am dedicated to cultivating a resilient, high-performing leadership team ready to deliver an exceptional year of growth.',
     bioIsPlaceholder: false,
