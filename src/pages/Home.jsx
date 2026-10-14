@@ -65,11 +65,6 @@ export default function Home() {
             <Reveal as="p" className="cover__statement" delay={0.28}>
               {CLUB.statement}
             </Reveal>
-
-            <Reveal as="p" className="small" delay={0.34}>
-              The current digital directory of the UCP Photography Club Executive Body,
-              2026–27.
-            </Reveal>
           </div>
         </div>
 

@@ -11,7 +11,7 @@ export const CLUB = {
   shortName: 'UPC',
   // Rendered as two editorial lines on covers and headings.
   coverLines: ['UCP', 'Photography', 'Club'],
-  statement: 'Capture. Create. Connect.',
+  statement: 'Framing UCP beyond the ordinary',
   description:
     'UCP Photography Club Executive Body and Leadership, 2026–27',
   // Tenure is written with an en dash, matching the club's own documents.
