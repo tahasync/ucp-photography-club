@@ -7,7 +7,7 @@ import { patronsBody } from '../data/patrons.js';
 
 /**
  * Patrons Body — kept separate from the student executive body.
- * Official names have not been supplied, so the records remain placeholders.
+ * Official names and introductions supplied by the club.
  * No reveal animation here: this page renders instantly.
  */
 export default function Patrons() {

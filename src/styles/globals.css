@@ -1517,6 +1517,7 @@ a:hover .portrait img,
   font-size: clamp(1rem, 1.05vw, 1.125rem);
   line-height: 1.6;
   max-width: 48ch;
+  white-space: pre-line;
 }
 
 .person__bio-note {

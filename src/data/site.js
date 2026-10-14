@@ -35,9 +35,9 @@ export const BRANDING = {
  */
 export const CONTENT_STATUS = {
   photos: 'placeholder',
-  bios: 'placeholder',
+  bios: 'supplied',
   socialLinks: 'pending',
-  patrons: 'pending',
+  patrons: 'supplied',
   logo: 'supplied'
 };
 

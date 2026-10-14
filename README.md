@@ -194,8 +194,8 @@ All people live in [`src/data/members.js`](src/data/members.js). The object key 
 
   The slug, the member `departmentSlug` and the URL stay `comms` / `creatives` so already
   printed QR codes keep working — only the visible team name changed.
-* **Patrons** – `src/data/members.js` (`patrons/patron`, `patrons/co-patron`). Names stay
-  `[Name to be added]` until the club supplies them.
+* **Patrons** – `src/data/members.js` (`patrons/patron`, `patrons/co-patron`). Official names
+  and introductions supplied by the club for the 2026–27 tenure.
 
 After editing, rebuild (`npm run build`) and open any QR URL with `npm run preview` to confirm it
 still resolves.

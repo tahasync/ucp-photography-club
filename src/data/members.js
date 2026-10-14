@@ -51,9 +51,18 @@ export const members = {
     departmentSlug: null,
     order: 1,
     ...portrait(1),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as President of the UCP Photography Club for the 2026–27 tenure, leading the executive body alongside the club’s five working teams.',
-    bioIsPlaceholder: true,
+    bio: `Some journeys are not built overnight. They are built through consistency, challenges, long hours, and responsibilities that shape you into someone capable of leading others.
+
+From starting as a General Member to stepping into Operations and now serving as President, every role has taught me something beyond photography. How to lead people, build systems, make decisions, and turn a vision into reality.
+
+Having worked across hundreds of society events and experienced the scale and intensity, I have come to understand that a great team is not defined by individual talent alone, but by how effectively every individual works towards a shared purpose.
+
+As President, my vision goes beyond managing a team or achieving targets. It is about building a stronger foundation, creating opportunities for people to grow, setting higher standards, and developing a culture where excellence becomes the norm, not the exception.
+
+The goal is not just to lead the year. It is to set a standard that lasts beyond it.
+
+This is more than a position. It is a responsibility to build, to elevate, and to leave a legacy worth carrying forward.`,
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -69,9 +78,8 @@ export const members = {
     departmentSlug: null,
     order: 2,
     ...portrait(2),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Vice President of the UCP Photography Club for the 2026–27 tenure, working alongside the executive body and supporting the club’s creative and operational teams.',
-    bioIsPlaceholder: true,
+    bio: 'I am Taha Naeem, Vice President, driving our club’s overarching strategy alongside the President. With three years of dedicated service, I bring strong foundational expertise from my previous role as Director of Editing. Having managed critical, high-stakes editing for our major events, I now oversee our broader operational execution. My core focus is internal coordination, equipping our directors to deploy their strategic initiatives flawlessly. I am dedicated to cultivating a resilient, high-performing leadership team ready to deliver an exceptional year of growth.',
+    bioIsPlaceholder: false,
     role: '',
     links: {
       instagram: 'https://www.instagram.com/heyitxtaha',
@@ -96,9 +104,8 @@ export const members = {
     departmentSlug: 'operations',
     order: 1,
     ...portrait(3),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing the Operations team for the 2026–27 tenure, coordinating the club’s logistics, resources and event execution.',
-    bioIsPlaceholder: true,
+    bio: 'Hello, I am Abdul Rahman, the Director of Operations. As someone currently holding a talent-based scholarship for photography, I bring a sharp, detail-oriented eye to our logistics. My role is to oversee and streamline all logistical aspects of our club, from event planning to resource management. I ensure that every internal process runs smoothly and our teams have exactly what they need to succeed. I am hopeful that with clear systems and strong teamwork, we can take our club’s output to the next level of excellence.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -114,9 +121,8 @@ export const members = {
     departmentSlug: 'operations',
     order: 2,
     ...portrait(1),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Deputy Director of Operations for the 2026–27 tenure, supporting the team’s direction and day-to-day coordination.',
-    bioIsPlaceholder: true,
+    bio: 'Hi everyone, I am Farhan Mansoor, the Deputy Director of Operations. My journey here started as a general member, giving me a grounded perspective as I step into this leadership role. I support the Director by ensuring all our internal processes are efficient, well-coordinated, and properly executed. My focus is bridging the gap between strategic planning and on-the-ground execution during our events. I’m excited to jump in, serve this team, and help solve any logistical challenges that come our way.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -132,9 +138,8 @@ export const members = {
     departmentSlug: 'operations',
     order: 3,
     ...portrait(2),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Assistant Director of Operations for the 2026–27 tenure, supporting the team across the club’s tenure activity.',
-    bioIsPlaceholder: true,
+    bio: 'Hi, I’m Muqadas M. Ismail, the Assistant Director of Operations! Having started as a general member, I am thrilled to step up and handle the hands-on logistics and event-day support. I work closely with operations leadership to ensure no detail slips through the cracks during execution. I am incredibly hopeful and energetic to learn and grow alongside this amazing team. I look forward to contributing my best efforts to make every single event a smooth success.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -153,9 +158,8 @@ export const members = {
     departmentSlug: 'editing',
     order: 1,
     ...portrait(3),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing the Editing team for the 2026–27 tenure, overseeing the club’s visual post-production and the consistency of its published media.',
-    bioIsPlaceholder: true,
+    bio: 'Hello, I am Mateen Kashif, the Director of Editing. I started my journey here as an Assistant in Editing, and I am proud to have proven myself to reach the Director role. I set the creative standard and provide the overall vision for all the written content we produce. My responsibility is to ensure our messaging is consistently clear, impactful, and grammatically flawless. I am excited to elevate our writing and help our members communicate their ideas powerfully.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -171,9 +175,8 @@ export const members = {
     departmentSlug: 'editing',
     order: 3,
     ...portrait(1),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Assistant Director of Editing for the 2026–27 tenure, supporting the team’s workflow and review of club photography.',
-    bioIsPlaceholder: true,
+    bio: 'Hi, I’m Daniyal Dar, the Assistant Director for the Editing team! Stepping up from a general member, I now handle initial proofreading and support the flow of drafts through our revision process. I ensure basic formatting guidelines are met before passing documents up to the senior editors. I am excited to learn from my peers, and I serve by being a reliable, extra set of eyes. I am ready to contribute to the flawless execution of our club’s written communications.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -189,9 +192,8 @@ export const members = {
     departmentSlug: 'editing',
     order: 2,
     ...portrait(2),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Deputy Director of Editing for the 2026–27 tenure, supporting post-production work across the club’s coverage.',
-    bioIsPlaceholder: true,
+    bio: 'Hi, I am Zohaib Faisal, the Deputy Director of Editing. My path from general member to the editing hierarchy has taught me the value of precision and hard work. I work directly with our editors to refine content, correct drafts, and maintain our high standards of quality. My role is to manage the editing timeline and ensure everything is polished before it reaches publication. I am eager to collaborate with the team and produce exceptional written material this year.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -210,9 +212,8 @@ export const members = {
     departmentSlug: 'comms',
     order: 1,
     ...portrait(1),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing publications for the 2026–27 tenure, shaping how the club’s work is written, published and documented.',
-    bioIsPlaceholder: true,
+    bio: 'Heyy! I am Eshaal Faisal, the Director of Publications. I have proudly served this society for two years, working my way up from Deputy Publications to my current role. My goal is to oversee the creation of our signature print and digital publications, giving our club a powerful voice. I am excited that our publications will set a new standard this year, showcasing our members’ talent. I am committed to producing work that leaves a lasting, inspiring legacy for our organization.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -228,9 +229,8 @@ export const members = {
     departmentSlug: 'comms',
     order: 2,
     ...portrait(2),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Deputy Director Publications for the 2026–27 tenure, supporting the club’s written output across the tenure.',
-    bioIsPlaceholder: true,
+    bio: 'Hello, I am Manahil Shafique, the Deputy Director of Publications. I have grown from a general member into this deputy role, ready to handle the hands-on process of moving concepts to completion. I work to coordinate the integration of writing, design, and editing into one cohesive product. I see the management of writing and I’m hopeful that with this team, we will produce something truly memorable. I am thrilled to help bring our most ambitious publication ideas to life this year.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -246,9 +246,8 @@ export const members = {
     departmentSlug: 'comms',
     order: 3,
     ...portrait(3),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing communications for the 2026–27 tenure, coordinating the club’s messaging and announcements.',
-    bioIsPlaceholder: true,
+    bio: 'Hi everyone! I am Anamta Jahangir, the Director of Communications. I bring strong continuity to this position, having proudly served as Director of Communications for the past year and a half. I act as the official voice between our club and external partners, media, and our broader audience. I serve by ensuring clarity and transparency, hoping we build stronger, lasting connections. I believe these collaborations will open exciting new doors and opportunities for all our members.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -267,9 +266,8 @@ export const members = {
     departmentSlug: 'social-media',
     order: 1,
     ...portrait(2),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing the Social Media team for the 2026–27 tenure, planning how the club’s photography reaches its audience.',
-    bioIsPlaceholder: true,
+    bio: 'Hello everyone! I’m Syed M. Talha, the Director of Social Media. With two years in the society, I started as Deputy Social Media and have worked hard to prove myself for this Director role. My mission is to build our brand voice and create a vibrant community through engaging digital content. I am optimistic that our team will reach and engage more people this year than ever before! I am ready to bring fresh ideas and viral energy to all of our digital platforms.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -285,9 +283,8 @@ export const members = {
     departmentSlug: 'social-media',
     order: 2,
     ...portrait(3),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Serving as Deputy Director of Social Media for the 2026–27 tenure, supporting the team’s publishing schedule and channels.',
-    bioIsPlaceholder: true,
+    bio: 'Hi, I’m Manal Chaudhry, the Deputy Director of Social Media. Transitioning from a general member to this role, I am eager to work closely on strategy and manage our content calendar. My job is to track analytics, plan schedules, and keep our online aesthetic beautifully uniform across all platforms. I serve by being the vital link between our bold creative ideas and their timely execution. I am excited to maximize our digital footprint and foster a highly interactive audience.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -306,9 +303,8 @@ export const members = {
     departmentSlug: 'creatives',
     order: 1,
     ...portrait(2),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing graphics for the 2026–27 tenure, shaping the club’s visual identity across its campaigns and announcements.',
-    bioIsPlaceholder: true,
+    bio: 'Hi, I am Hadia Ammar, the Director of Graphics! I have been a dedicated member of this club for three years, proudly holding strong the graphics domain. My role is to lead the visual identity of our club, translating every concept into stunning digital designs. I am hopeful that our creativity will visually represent our club’s passion and make every project pop with a fresh look. I look forward to giving our club a highly professional and dynamic visual aesthetic this year.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -324,22 +320,19 @@ export const members = {
     departmentSlug: 'creatives',
     order: 2,
     ...portrait(1),
-    // TODO: Replace placeholder bio after hierarchy shoot / content collection.
-    bio: 'Directing art and craft for the 2026–27 tenure, bringing the club’s physical and creative output together.',
-    bioIsPlaceholder: true,
+    bio: 'Hi! I am Farmeen Aejaz Chughtaie, the Director of Arts & Crafts. My journey from general member to Director has fueled my passion to oversee all tangible creations for our club. I serve by leading hands-on projects that bring beautiful color and boundless creativity to our branding and physical events. I am optimistic that our physical work will inspire others and add a unique, personal touch to everything we do. I am eager to craft beautiful, memorable experiences that our members and guests will love.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
 
   /* ---------------------------------------------------------------- *
-   * Patrons Body — official names have not been supplied.
-   * Placeholders only: never invent patron names.
+   * Patrons Body — official names and introductions supplied by the club.
    * ---------------------------------------------------------------- */
   'patrons/patron': {
     slug: 'patrons/patron',
     path: '/patrons/patron',
-    name: '[Name to be added]',
-    nameIsPending: true,
+    name: 'Mr Haider Miraj',
     position: 'Patron',
     positionLines: ['Patron'],
     body: 'Patrons Body',
@@ -347,9 +340,8 @@ export const members = {
     departmentSlug: null,
     order: 1,
     ...portrait(1),
-    // TODO: Replace placeholder bio once the official Patron is confirmed.
-    bio: 'PLACEHOLDER. The Patron’s introduction will be published once the official name and approved copy are provided.',
-    bioIsPlaceholder: true,
+    bio: 'Mr Haider Miraj serves as the Patron of the UCP Photography Club and the Director of Communications at the University of Central Punjab. His guidance and leadership play an integral role in supporting the club’s vision, strengthening its initiatives, and promoting creativity and excellence in visual storytelling.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   },
@@ -357,8 +349,7 @@ export const members = {
   'patrons/co-patron': {
     slug: 'patrons/co-patron',
     path: '/patrons/co-patron',
-    name: '[Name to be added]',
-    nameIsPending: true,
+    name: 'Mr Abdul Hannan',
     position: 'Co-Patron',
     positionLines: ['Co-Patron'],
     body: 'Patrons Body',
@@ -366,9 +357,8 @@ export const members = {
     departmentSlug: null,
     order: 2,
     ...portrait(3),
-    // TODO: Replace placeholder bio once the official Co-Patron is confirmed.
-    bio: 'PLACEHOLDER. The Co-Patron’s introduction will be published once the official name and approved copy are provided.',
-    bioIsPlaceholder: true,
+    bio: 'Mr Abdul Hannan serves as the Co-Patron of the UCP Photography Club, providing valuable guidance and support to the club’s leadership and members. His role contributes to the club’s continued growth, fostering a collaborative environment that encourages creativity, professionalism, and a passion for photography.',
+    bioIsPlaceholder: false,
     role: '',
     links: emptyLinks()
   }
