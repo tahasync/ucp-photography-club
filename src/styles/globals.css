@@ -1111,7 +1111,7 @@ a.index-row:active {
   grid-column: 2;
   display: inline-flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.75rem;
   font-size: var(--fs-micro);
   font-weight: 600;
   letter-spacing: 0.14em;
