@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import MobileMenu from './MobileMenu.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
+import Logo from './Logo.jsx';
 import { NAV_ITEMS, isNavItemActive } from '../data/navigation.js';
 
 /**
- * Minimal sticky header: wordmark, three links on desktop, MENU on mobile.
+ * Minimal sticky header: logo, three links on desktop, MENU on mobile.
  * Gains a hairline rule only once the page is scrolled.
  */
 export default function Navigation() {
@@ -38,8 +39,7 @@ export default function Navigation() {
       <header className={headerClass}>
         <div className="shell site-header__inner">
           <Link className="wordmark" to="/" aria-label="UCP Photography Club home">
-            <span className="wordmark__text">UPC</span>
-            <span className="wordmark__rule" aria-hidden="true" />
+            <Logo className="wordmark__logo" alt="UCP Photography Club logo" />
           </Link>
 
           <nav className="nav" aria-label="Primary">

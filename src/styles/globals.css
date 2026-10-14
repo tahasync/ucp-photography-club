@@ -522,6 +522,16 @@ a:focus-visible .u-line::after {
   width: 38px;
 }
 
+/* Header logo: the official club logo image, height-locked so it never
+   distorts or overflows the 68px header. Aspect ratio is preserved. */
+.wordmark__logo {
+  display: block;
+  width: auto;
+  height: 40px;
+  max-height: calc(var(--header-h) - 1.4rem);
+  object-fit: contain;
+}
+
 .nav {
   display: none;
   align-items: center;
