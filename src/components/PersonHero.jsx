@@ -9,6 +9,18 @@ import { relatedMembers } from '../data/members.js';
 const splitName = (name) => name.split(' ').filter(Boolean);
 
 /**
+ * Emphasises the person's name inside their own introduction by wrapping each
+ * occurrence in <strong>. The bio copy is never rewritten — only the existing
+ * name spans are made bold, so the introduction stays exactly as supplied.
+ */
+const emphasiseName = (bio, name) => {
+  if (!bio || !name || !bio.includes(name)) return bio;
+  return bio.split(name).flatMap((part, index) =>
+    index === 0 ? [part] : [<strong key={index} className="person__bio-name">{name}</strong>, part]
+  );
+};
+
+/**
  * The digital identity block behind every QR code.
  * Desktop: sticky portrait beside identity + bio + links.
  * Mobile: position, name, portrait, details, links — in that order.
@@ -65,7 +77,7 @@ export default function PersonHero({ member, relatedLabel, browseTo, browseLabel
         </div>
 
         <p className="person__bio">
-          {member.bio}
+          {emphasiseName(member.bio, member.name)}
           {member.bioIsPlaceholder ? (
             <span className="person__bio-note label">
               Placeholder introduction. Awaiting approved copy.

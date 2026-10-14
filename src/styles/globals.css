@@ -1530,6 +1530,13 @@ a:hover .portrait img,
   white-space: pre-line;
 }
 
+/* The member's name, emphasised in place inside their own introduction. */
+.person__bio-name {
+  font-weight: 800;
+  color: var(--fg);
+  letter-spacing: 0.01em;
+}
+
 .person__bio-note {
   display: block;
   margin-top: 0.85rem;
