@@ -59,7 +59,7 @@ export default function Home() {
 
           <div className="cover__aside">
             <Reveal delay={0.2}>
-              <Logo className="cover__logo" />
+              <Logo className="cover__logo" width={190} height={98} />
             </Reveal>
 
             <Reveal as="p" className="cover__statement" delay={0.28}>

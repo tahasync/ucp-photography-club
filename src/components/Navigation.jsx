@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import MobileMenu from './MobileMenu.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
@@ -12,7 +12,9 @@ import { NAV_ITEMS, isNavItemActive } from '../data/navigation.js';
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuToggleRef = useRef(null);
   const { pathname } = useLocation();
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -39,7 +41,12 @@ export default function Navigation() {
       <header className={headerClass}>
         <div className="shell site-header__inner">
           <Link className="wordmark" to="/" aria-label="UCP Photography Club home">
-            <Logo className="wordmark__logo" alt="UCP Photography Club logo" />
+            <Logo
+              className="wordmark__logo"
+              alt="UCP Photography Club logo"
+              width={78}
+              height={40}
+            />
           </Link>
 
           <nav className="nav" aria-label="Primary">
@@ -66,6 +73,7 @@ export default function Navigation() {
               className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
+              ref={menuToggleRef}
               onClick={() => setMenuOpen((value) => !value)}
             >
               <span>{menuOpen ? 'Close' : 'Menu'}</span>
@@ -78,7 +86,11 @@ export default function Navigation() {
         </div>
       </header>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu
+        open={menuOpen}
+        onClose={closeMenu}
+        returnFocusRef={menuToggleRef}
+      />
     </>
   );
 }

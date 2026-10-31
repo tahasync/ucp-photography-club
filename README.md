@@ -137,10 +137,10 @@ print cleanly.
 └── src/
     ├── components/             # Navigation, MobileMenu, PersonHero, Portrait, Arrow, …
     ├── data/
-    │   ├── site.js             # club name, tenure, branding paths, content status
+    │   ├── site.js             # club identity, tenure, branding paths
     │   ├── members.js          # every person + QR slug (single source of truth)
     │   ├── hierarchy.js        # the five teams, order and placeholder intros
-    │   ├── patrons.js          # Patrons Body (names pending)
+    │   ├── patrons.js          # Patron and Co-Patron directory
     │   └── navigation.js       # primary nav items + active-state rules
     ├── lib/motion.js           # shared easing/duration/stagger tokens
     ├── pages/                  # Home, PresentBody, Patrons, Hierarchy, Department, Person, 404
@@ -169,7 +169,9 @@ All people live in [`src/data/members.js`](src/data/members.js). The object key 
   group: 'present-body',          // 'present-body' | 'hierarchy' | 'patrons'
   departmentSlug: null,           // 'operations' | 'editing' | 'comms' | …
   order: 2,                       // position order inside the team
-  ...portrait(2),                 // temporary portrait wiring
+  image: '/images/members/taha-naeem.jpg',
+  imageWebp: '/images/members/taha-naeem.webp',
+  imagePlaceholder: false,
   bio: 'Approved introduction…',
   bioIsPlaceholder: false,        // set false once the copy is official
   role: '',                       // optional extra line, hidden when empty
@@ -202,10 +204,10 @@ still resolves.
 
 ---
 
-## 5. Replace the placeholder portraits
+## 5. Update portraits
 
-The official hierarchy photoshoot has not happened yet, so every record points at a neutral
-placeholder (`public/images/members/member-placeholder-0*.jpg`).
+Each current member record points to an optimized portrait in `public/images/members/`.
+When replacing or adding a portrait:
 
 When real portraits arrive:
 
@@ -219,7 +221,7 @@ When real portraits arrive:
 
    The script writes `public/images/members/<slug>.jpg` (max 1600px wide) and a `.webp`
    version, then prints the exact data snippet to paste.
-3. In `src/data/members.js`, replace `...portrait(n)` for that person with:
+3. In `src/data/members.js`, set that member's image fields to:
 
    ```js
    image: '/images/members/taha-naeem.jpg',
@@ -260,8 +262,8 @@ public/images/branding/upc-logo.png
   Outputs: `favicon.svg`, `favicon-16/32/48.png`, `apple-touch-icon.png`, `icon-192/512.png`
   and `og-cover.jpg` (1200×630 social preview).
 
-The header itself uses a typographic `UPC` wordmark plus a red rule, so the site never looks
-broken if the logo asset changes shape.
+The header and home cover use the supplied logo image. Its rendered size is reserved in the
+markup so a slow image or stylesheet load cannot make it expand over the navigation.
 
 ---
 
@@ -379,20 +381,17 @@ Targets: Lighthouse Performance 90+ and Accessibility 90+ on the QR profile page
 
 ---
 
-## 11. Content still to be replaced (post-photoshoot checklist)
+## 11. Content status
 
 | Item | Where | Current state |
 | --- | --- | --- |
-| Portraits (17 records) | `public/images/members/` + `members.js` | neutral placeholders |
-| Bios | `src/data/members.js` (`bio`, `bioIsPlaceholder`) | marked placeholder copy |
-| Social / contact links | `src/data/members.js` (`links`) | empty (nothing invented) |
-| Team introductions | `src/data/hierarchy.js` (`intro`, `introIsPlaceholder`) | marked placeholder copy |
-| Patron & Co-Patron names | `src/data/members.js` (`patrons/*`) | `[Name to be added]` |
+| Portraits (17 records) | `public/images/members/` + `members.js` | optimized JPG and WebP portraits in use |
+| Bios | `src/data/members.js` (`bio`, `bioIsPlaceholder`) | supplied and copy-edited |
+| Public links | `src/data/members.js` (`links`) | supplied for all current members |
+| Team introductions | `src/data/hierarchy.js` (`intro`, `introIsPlaceholder`) | approved copy still needed |
+| Patron & Co-Patron names | `src/data/members.js` (`patrons/*`) | supplied |
 | Vector logo | `public/images/branding/` | optimised raster logo in use |
 | Custom domain | hosting dashboard | not set |
-
-`src/data/site.js` keeps a `CONTENT_STATUS` map for development reference; it is never
-rendered in production.
 
 ---
 

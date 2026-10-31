@@ -31,6 +31,10 @@ export default function PersonHero({ member, relatedLabel, browseTo, browseLabel
     : [member.position];
   const nameLines = splitName(member.name);
   const related = relatedMembers(member);
+  const bioParagraphs = String(member.bio || '')
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
 
   return (
     <article className="person">
@@ -76,14 +80,16 @@ export default function PersonHero({ member, relatedLabel, browseTo, browseLabel
           <span className="label tnum">{CLUB.tenure}</span>
         </div>
 
-        <p className="person__bio">
-          {emphasiseName(member.bio, member.name)}
+        <div className="person__bio">
+          {bioParagraphs.map((paragraph, index) => (
+            <p key={index}>{emphasiseName(paragraph, member.name)}</p>
+          ))}
           {member.bioIsPlaceholder ? (
             <span className="person__bio-note label">
               Placeholder introduction. Awaiting approved copy.
             </span>
           ) : null}
-        </p>
+        </div>
 
         {member.role ? (
           <div className="person__role">

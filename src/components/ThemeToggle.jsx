@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { applyTheme, readStoredTheme } from '../lib/theme.js';
+import { applyTheme, hasStoredTheme, readStoredTheme } from '../lib/theme.js';
 
 const SunIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -31,8 +31,24 @@ export default function ThemeToggle({ className = '' }) {
   );
 
   useEffect(() => {
-    applyTheme(theme);
+    applyTheme(theme, { persist: false });
   }, [theme]);
+
+  useEffect(() => {
+    if (!window.matchMedia) return undefined;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const syncSystemTheme = (event) => {
+      if (!hasStoredTheme()) setTheme(event.matches ? 'dark' : 'light');
+    };
+
+    if (media.addEventListener) {
+      media.addEventListener('change', syncSystemTheme);
+      return () => media.removeEventListener('change', syncSystemTheme);
+    }
+
+    media.addListener(syncSystemTheme);
+    return () => media.removeListener(syncSystemTheme);
+  }, []);
 
   const isDark = theme === 'dark';
 
@@ -43,7 +59,11 @@ export default function ThemeToggle({ className = '' }) {
       aria-pressed={isDark}
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       title={isDark ? 'Light theme' : 'Dark theme'}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={() => {
+        const next = isDark ? 'light' : 'dark';
+        applyTheme(next);
+        setTheme(next);
+      }}
     >
       <span className="theme-toggle__sun">
         <SunIcon />

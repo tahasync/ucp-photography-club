@@ -24,8 +24,7 @@ export default function PersonLinks({ member }) {
     return (
       <div className="links">
         <p className="links__note">
-          Approved Instagram, LinkedIn, GitHub and email links for {member.name} will
-          appear here once they are supplied for the 2026–27 tenure.
+          No public links have been added for {member.name} yet.
         </p>
       </div>
     );

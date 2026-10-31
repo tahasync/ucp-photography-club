@@ -9,7 +9,7 @@ import { CLUB } from '../data/site.js';
  * Full-screen mobile menu: large type, black canvas, restrained stagger.
  * Handles Escape, body scroll lock and keeps Tab focus inside the panel.
  */
-export default function MobileMenu({ open, onClose }) {
+export default function MobileMenu({ open, onClose, returnFocusRef }) {
   const panelRef = useRef(null);
   const firstLinkRef = useRef(null);
   const reduceMotion = useReducedMotion();
@@ -50,8 +50,9 @@ export default function MobileMenu({ open, onClose }) {
       window.clearTimeout(focusTimer);
       window.removeEventListener('keydown', onKeyDown);
       document.body.classList.remove('is-locked');
+      window.requestAnimationFrame(() => returnFocusRef?.current?.focus());
     };
-  }, [open, onClose]);
+  }, [open, onClose, returnFocusRef]);
 
   return (
     <AnimatePresence>

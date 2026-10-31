@@ -1529,7 +1529,10 @@ a:hover .portrait img,
   line-height: 1.75;
   max-width: 50ch;
   text-wrap: pretty;
-  white-space: pre-line;
+}
+
+.person__bio > p + p {
+  margin-top: 0.9em;
 }
 
 /* The member's name, emphasised in place inside their own introduction. */
@@ -1803,44 +1806,6 @@ a.cta-row:focus-visible .cta-row__arrow {
 .structure__sep {
   display: inline-flex;
   color: var(--muted);
-}
-
-.structure__teams {
-  display: grid;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-@media (min-width: 640px) {
-  .structure__teams {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
-
-.structure__team {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.15rem 0.35rem;
-  min-height: 52px;
-  padding: 0.7rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--surface);
-  font-size: var(--fs-micro);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease),
-    color var(--dur) var(--ease);
-}
-
-.structure__team:hover,
-.structure__team:focus-visible {
-  color: var(--red-ink);
-  border-color: var(--red);
-  transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 /**
- * Site-wide constants: club identity, tenure, branding paths and the
- * content status flags used while official material is still pending.
+ * Site-wide constants: club identity, tenure and branding paths.
  *
  * NOTE: only touch CLUB / TENURE when the club asks for it — the tenure string
  * appears on every printed card's QR destination page.
@@ -8,7 +7,6 @@
 
 export const CLUB = {
   name: 'UCP Photography Club',
-  shortName: 'UPC',
   // Rendered as two editorial lines on covers and headings.
   coverLines: ['UCP', 'Photography', 'Club'],
   statement: 'Framing UCP beyond the ordinary',
@@ -24,21 +22,7 @@ export const BRANDING = {
   // the same path to upgrade it — nothing else needs to change.
   logo: '/images/branding/upc-logo.png',
   logoAlt: 'UCP Photography Club logo',
-  favicon: '/images/branding/favicon.svg',
   ogImage: '/images/branding/og-cover.jpg'
-};
-
-/**
- * Content still awaiting official material.
- * Development only — the production UI derives its labels from member data
- * (e.g. `imagePlaceholder: true`), never from these flags.
- */
-export const CONTENT_STATUS = {
-  photos: 'placeholder',
-  bios: 'supplied',
-  socialLinks: 'pending',
-  patrons: 'supplied',
-  logo: 'supplied'
 };
 
 /**

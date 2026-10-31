@@ -9,7 +9,6 @@ export const EASE = [0.16, 1, 0.3, 1];
 export const DURATION = {
   fast: 0.25,
   base: 0.45,
-  slow: 0.65,
-  reveal: 0.85
+  slow: 0.65
 };
 

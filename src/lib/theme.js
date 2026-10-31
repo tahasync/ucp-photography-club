@@ -19,34 +19,58 @@ const systemTheme = () => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
-export const readStoredTheme = () => {
+const storedTheme = () => {
   try {
     const saved = window.localStorage.getItem(THEME_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
   } catch {
     /* storage unavailable — fall back to the system setting */
   }
-  return systemTheme();
+  return null;
 };
 
-export const applyTheme = (theme) => {
+export const hasStoredTheme = () => storedTheme() !== null;
+
+export const readStoredTheme = () => storedTheme() || systemTheme();
+
+export const applyTheme = (theme, { persist = true } = {}) => {
   const resolved = theme === 'dark' ? 'dark' : 'light';
   const root = document.documentElement;
 
   root.dataset.theme = resolved;
   root.style.colorScheme = resolved;
 
-  try {
-    window.localStorage.setItem(THEME_KEY, resolved);
-  } catch {
-    /* ignore */
+  if (persist) {
+    try {
+      window.localStorage.setItem(THEME_KEY, resolved);
+    } catch {
+      /* ignore */
+    }
   }
 
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute('content', THEME_META[resolved]);
 };
 
-/** Call once at startup, then keep following the OS while the user has no choice. */
+const listen = (media, handler) => {
+  if (media.addEventListener) {
+    media.addEventListener('change', handler);
+    return () => media.removeEventListener('change', handler);
+  }
+  media.addListener(handler);
+  return () => media.removeListener(handler);
+};
+
+/** Apply the saved/system theme and keep following the OS until the user picks one. */
 export const initTheme = () => {
-  applyTheme(readStoredTheme());
+  applyTheme(readStoredTheme(), { persist: false });
+
+  if (typeof window === 'undefined' || !window.matchMedia) return;
+
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  listen(media, (event) => {
+    if (!hasStoredTheme()) {
+      applyTheme(event.matches ? 'dark' : 'light', { persist: false });
+    }
+  });
 };

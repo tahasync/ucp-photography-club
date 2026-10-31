@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Arrow from '../components/Arrow.jsx';
 import HierarchySection from '../components/HierarchySection.jsx';
@@ -51,17 +50,6 @@ export default function Hierarchy() {
           <li className="structure__node">Positions</li>
         </ul>
 
-        <div className="structure__teams">
-          {departments.map((department) => (
-            <Link
-              key={department.slug}
-              className="structure__team"
-              to={department.route}
-            >
-              <span className="tnum">{department.index}</span> / {department.name}
-            </Link>
-          ))}
-        </div>
       </section>
 
       <section className="section section--tight" aria-label="Teams">

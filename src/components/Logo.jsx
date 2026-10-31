@@ -7,8 +7,8 @@ import { BRANDING, asset } from '../data/site.js';
  */
 export default function Logo({
   className = '',
-  width = 2400,
-  height = 1232,
+  width = 190,
+  height = 98,
   decorative = false,
   alt,
   eager = true
